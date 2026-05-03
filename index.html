@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinastia Chicas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="nav-icon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Importación de Google Sans (Product Sans) */
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('https://fonts.gstatic.com/s/googlesans/v31/4UaGrENHsxJlGDuGo1OIlL3Kwp5eK2GmsW_H.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('https://fonts.gstatic.com/s/googlesans/v31/4UaErENHsxJlGDuGo1OIlL3L3pOW4f-M2XU.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('https://fonts.gstatic.com/s/googlesans/v31/4UaErENHsxJlGDuGo1OIlL3N3ZOW4f-M2XU.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            --gold: #c5a059;
+            --dark: #0a0a0b;
+        }
+
+        body {
+            font-family: 'Google Sans', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #ffffff;
+            color: #1a1a1a;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        span,
+        a,
+        p {
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .bg-dark {
+            background-color: var(--dark);
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .border-gold {
+            border-color: var(--gold);
+        }
+
+        .hero-visual {
+            background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.85)),
+                url('https://images.unsplash.com/photo-1530633762170-183ed02b001c?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .gold-button {
+            background: var(--gold);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .gold-button:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.25);
+        }
+
+        .logo-container {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            background: var(--dark);
+        }
+
+        .card-premium {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card-premium:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .tracking-tight-custom {
+            letter-spacing: -0.025em;
+        }
+
+        .tracking-widest-custom {
+            letter-spacing: 0.15em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-[100] nav-blur border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Tu Logo -->
+                <div class="flex items-center gap-4">
+                    <div class="logo-container">
+                        <img src="nav-icon.svg" alt="Logo" class="w-80% h-full rounded-full object-cover">
+                    </div>
+                    <div class="flex flex-col leading-none">
+                        <span class="font-bold text-lg tracking-tight-custom uppercase">Dinastía Chicas</span>
+                        <span class="text-[10px] font-medium text-slate-500 uppercase tracking-widest-custom">Mateo
+                            Alexander</span>
+                    </div>
+                </div>
+
+                <!-- Enlaces -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="datos.pdf" target="_blank"
+                        class="text-xs font-bold uppercase tracking-widest-custom hover:text-gold transition">Visión</a>
+                    <a href="#diagnostico"
+                        class="text-xs font-bold uppercase tracking-widest-custom hover:text-gold transition">Análisis</a>
+                    <a href="https://mateochicas.com" target="_blank"
+                        class="px-7 py-3 gold-button rounded-full text-xs font-bold tracking-widest-custom">
+                        mateochicas.com
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <button class="lg:hidden">
+                    <i class="fas fa-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[90vh] flex items-center hero-visual overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full text-center lg:text-left">
+            <div
+                class="inline-block px-5 py-1.5 rounded-full border border-gold text-gold text-[10px] font-bold tracking-widest-custom uppercase mb-10">
+                Propuesta de Impacto Social 2024
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight-custom leading-[1.05]">
+                El Custodio de la <br><span class="text-gold">Sabiduría</span>
+            </h1>
+            <p class="text-xl text-slate-300 mb-12 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed opacity-90">
+                "Una nación que honra a sus ancianos asegura su futuro." <br>
+                Un proyecto de la Dinastía Chicas dedicado a la protección integral.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+                <a href="datos.pdf"
+                    class="px-10 py-4 bg-white text-dark rounded-xl font-bold hover:bg-slate-100 transition shadow-xl text-sm">
+                    Conoce la Visión
+                </a>
+                <a href="https://mateochicas.com" target="_blank"
+                    class="px-10 py-4 border border-white/30 text-white rounded-xl font-bold hover:bg-white/10 transition backdrop-blur-md text-sm">
+                    Visitar mateochicas.com
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+    </header>
+
+    <!-- Sección: Dinastía Chicas -->
+    <section id="vision" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="lg:w-1/2 relative">
+                    <div class="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl">
+                        <div class="absolute inset-0 bg-dark/10"></div>
+                        <img src="https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?auto=format&fit=crop&q=80&w=2070"
+                            alt="Respeto y Sabiduría" class="w-full h-full object-cover min-h-[400px]">
+                    </div>
+                    <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-gold/10 rounded-full blur-3xl"></div>
+                </div>
+                <div class="lg:w-1/2">
+                    <span class="text-xs font-bold tracking-widest-custom text-gold uppercase mb-6 block">Legado
+                        Familiar</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 tracking-tight-custom">Dinastía Chicas</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-10">
+                        Bajo la visión de <strong>Mateo Alexander Chicas</strong>, este proyecto nace de una profunda
+                        reflexión sobre el valor de nuestros adultos mayores. La Dinastía Chicas se compromete a liderar
+                        una movilización de conciencia para asegurar que la sabiduría acumulada de nuestra gente sea el
+                        pilar fundamental de nuestra sociedad.
+                    </p>
+                    <div class="flex flex-wrap gap-8 items-center">
+                        <a href="https://instagram.com/mateoalexanderchicas" target="_blank"
+                            class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-pink-600 group-hover:text-white transition-all shadow-sm">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </div>
+                            <span class="font-bold text-sm text-slate-700">@mateoalexanderchicas</span>
+                        </a>
+                        <div class="h-10 w-[1px] bg-slate-100 hidden sm:block"></div>
+                        <a href="mailto:info@dinastiachicas.com" class="flex items-center gap-4 group">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
+                                <i class="fas fa-envelope text-lg"></i>
+                            </div>
+                            <span class="font-bold text-sm text-slate-700">info@dinastiachicas.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Análisis Estratégico -->
+    <section id="diagnostico" class="py-32 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-24">
+                <h3 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight-custom">Diagnóstico Estratégico</h3>
+                <div class="w-20 h-1.5 bg-gold mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Tarjeta 1 -->
+                <div class="card-premium p-12 bg-white rounded-[2rem]">
+                    <div class="mb-10 text-gold bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-5 tracking-tight-custom">Mapa Demográfico</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        El Salvador transita hacia una sociedad envejecida con casi 900,000 adultos mayores. Este cambio
+                        exige una reingeniería inmediata de servicios sociales y salud.
+                    </p>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="card-premium p-12 bg-white rounded-[2rem] border-b-8 border-gold shadow-xl">
+                    <div class="mb-10 text-gold bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-coins text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-5 tracking-tight-custom">El "PIB Invisible"</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Nuestros mayores sostienen la economía mediante el voluntariado y el cuidado no remunerado,
+                        ahorrando al Estado millones y manteniendo la estabilidad emocional familiar.
+                    </p>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="card-premium p-12 bg-white rounded-[2rem]">
+                    <div class="mb-10 text-gold bg-gold/10 w-16 h-16 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-balance-scale text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-5 tracking-tight-custom">Justicia Patrimonial</h4>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Enfoque especial en la mujer mayor, quien enfrenta mayor riesgo de exclusión. Es vital
+                        garantizar legalmente su derecho a heredar y poseer propiedades.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA Final -->
+    <section class="py-32 bg-dark text-white relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div
+                class="w-20 h-20 bg-gold/20 rounded-3xl flex items-center justify-center mx-auto mb-10 border border-gold/30">
+                <img src="nav-icon.svg" alt="Logo" class="w-80% h-full rounded-full object-cover">
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-10 tracking-tight-custom">Liderando el cambio generacional</h2>
+            <p class="text-xl text-slate-400 mb-14 font-medium italic opacity-90 leading-relaxed">
+                "Movilizaremos conciencias para que cada joven sea <br class="hidden md:block"> guardián de los derechos
+                de sus abuelos."
+            </p>
+            <div class="flex flex-col items-center gap-10">
+                <a href="https://mateochicas.com" target="_blank"
+                    class="px-14 py-5 gold-button rounded-2xl font-bold text-xl tracking-widest-custom shadow-2xl">
+                    Visita mateochicas.com
+                </a>
+                <div class="flex gap-8">
+                    <a href="https://instagram.com/mateoalexanderchicas" target="_blank"
+                        class="text-3xl text-slate-500 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:info@dinastiachicas.com"
+                        class="text-3xl text-slate-500 hover:text-white transition-colors duration-300">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-14 border-t border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10 text-center">
+            <div class="flex items-center gap-4">
+                <div class="logo-container">
+                    <img src="nav-icon.svg" alt="Logo" class="w-80% h-full rounded-full object-cover">
+                </div>
+                <div class="text-left">
+                    <span class="font-bold block tracking-tight-custom text-slate-900">Dinastía Chicas</span>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest-custom">Mateo
+                        Alexander</span>
+                </div>
+            </div>
+            <a href="https://mateochicas.com" target="_blank"
+                class="text-xs font-bold border-b-2 border-gold pb-1 hover:text-gold transition-colors">
+                mateochicas.com
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto scroll sutil para la barra de navegación
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 80) {
+                nav.classList.add('shadow-sm', 'h-16');
+                nav.querySelector('.max-w-7xl').classList.replace('h-20', 'h-16');
+            } else {
+                nav.classList.remove('shadow-sm', 'h-16');
+                nav.querySelector('.max-w-7xl').classList.replace('h-16', 'h-20');
+            }
+        });
+
+        // Animación suave para anclas
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

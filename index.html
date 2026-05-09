@@ -5,78 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dinastía Chicas | Mateo Alexander Chicas</title>
+    <link rel="icon" type="image/svg+xml" href="nav-icon.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <script>
+        // Detectar preferencia del sistema y aplicar la clase 'dark' automáticamente
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Tipografía estilo Google Sans Rounded */
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
         :root {
+            --apple-blue: #0071e3;
+            --apple-dark: #1d1d1f;
+            --apple-gray: #86868b;
+            --apple-light-gray: #f5f5f7;
+            --apple-border: #d2d2d7;
             --brand-gold: #c5a059;
-            --brand-dark: #121212;
-            --brand-light: #F5F5F0;
-            --brand-accent: #E8E8E1;
-            --text-main: #1C1C1C;
+        }
+
+        * {
+            font-family: 'Google Sans', sans-serif !important;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--brand-light);
-            color: var(--text-main);
+            background-color: #ffffff;
+            color: var(--apple-dark);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Eliminación de degradados - Colores Sólidos */
-        .bg-premium-dark { background-color: var(--brand-dark); }
-        .bg-premium-gold { background-color: var(--brand-gold); }
-        .bg-premium-light { background-color: var(--brand-light); }
-        .bg-premium-accent { background-color: var(--brand-accent); }
-
-        .border-gold { border-color: var(--brand-gold); }
-        .text-gold { color: var(--brand-gold); }
-
-        /* Estilo de Botones Redondeados Google */
-        .btn-google {
-            border-radius: 100px;
-            padding: 12px 28px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            text-transform: none;
-            letter-spacing: 0.2px;
+        .dark body {
+            background-color: #000000;
+            color: #f5f5f7;
         }
 
-        .btn-google:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-
-        /* Secciones tipo Documento (Docs) */
-        .doc-section {
-            background-color: white;
-            border-radius: 2rem;
-            padding: 3rem;
-            border: 1px solid var(--brand-accent);
-            margin-bottom: 2rem;
-        }
-
-        .photo-frame {
-            border-radius: 2.5rem;
-            background-color: var(--brand-accent);
+        .apple-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            border: 1px solid var(--brand-gold);
-            position: relative;
+            z-index: 50;
+            border-bottom: 1px solid var(--apple-border);
+            font-size: 12px;
+            color: var(--apple-dark);
         }
 
+        .dark .apple-nav {
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid #424245;
+            color: #f5f5f7;
+        }
 
+        .ribbon {
+            margin-top: 44px;
+            background-color: var(--apple-light-gray);
+            color: var(--apple-dark);
+            font-size: 14px;
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid var(--apple-border);
+        }
 
-        /* Scrollbar Personalizado */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--brand-light); }
-        ::-webkit-scrollbar-thumb { background: var(--brand-gold); border-radius: 10px; }
+        .dark .ribbon {
+            background-color: #1d1d1f;
+            color: #f5f5f7;
+            border-bottom: 1px solid #424245;
+        }
+
+        .link-apple {
+            color: var(--apple-blue);
+            text-decoration: none;
+        }
+
+        .link-apple:hover {
+            text-decoration: underline;
+        }
+
+        .text-hero {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.015em;
+        }
+
+        .btn-primary {
+            background: var(--apple-blue);
+            color: #fff;
+            border-radius: 980px;
+            padding: 11px 21px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .flat-card {
+            background-color: var(--apple-light-gray);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .dark .flat-card {
+            background-color: #1d1d1f;
+        }
+
+        .photo-frame {
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid var(--apple-border);
+            background-color: var(--apple-light-gray);
+        }
+
+        .dark .photo-frame {
+            border-color: #424245;
+            background-color: #1d1d1f;
+        }
 
         /* Modal PDF */
         .pdf-modal {
@@ -85,142 +161,165 @@
             inset: 0;
             background: rgba(0, 0, 0, 0.8);
             z-index: 1000;
-            padding: 1rem;
+            padding: 24px;
+            backdrop-filter: blur(10px);
         }
-        .pdf-modal.active { display: flex; align-items: center; justify-content: center; }
+
+        .pdf-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Navegación -->
-    <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-brand-accent">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between h-20 items-center">
-            <div class="flex items-center gap-4">
-                <img src="nav-icon.svg" alt="Icono Dinastía Chicas" class="w-12 h-12 object-contain">
-                <div>
-                    <h1 class="font-bold text-lg leading-none uppercase tracking-tight">Dinastía Chicas</h1>
-                    <p class="text-[10px] text-gold font-bold uppercase tracking-widest">Mateo Chicas</p>
-                </div>
+    <nav class="apple-nav">
+        <div class="max-w-5xl w-full px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="nav-icon.svg" alt="Dinastía Chicas Logo" class="h-4 w-4 dark:invert">
+                <span class="font-medium tracking-tight">Dinastía Chicas</span>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#guia" class="hover:text-gold transition">Guía de Cuido</a>
-                <a href="#legado" class="hover:text-gold transition">In Memoriam</a>
-                <a href="#ayuda" class="hover:text-gold transition">Organizaciones</a>
-                <button onclick="openPDF()" class="btn-google bg-premium-dark text-white">Presentación Oficial</button>
+            <div class="hidden md:flex gap-6 items-center">
+                <a href="#guia" class="hover:opacity-70 transition-opacity">Guía de Cuido</a>
+                <a href="#legado" class="hover:opacity-70 transition-opacity">In Memoriam</a>
+                <a href="#ayuda" class="hover:opacity-70 transition-opacity">Organizaciones</a>
+                <button onclick="openPDF()" class="link-apple font-medium">Presentación</button>
             </div>
         </div>
     </nav>
 
+    <div class="ribbon">
+        <span class="font-medium">Aviso importante:</span> No somos una organización, solo informamos sobre el cuido a
+        adultos mayores.
+    </div>
+
     <!-- Header / Hero -->
-    <header class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
-                Hacia una cultura de <span class="text-gold">Dignidad Integral</span>
-            </h2>
-            <p class="text-xl text-slate-600 leading-relaxed mb-10">
-                Este espacio no es solo un sitio web; es un documento vivo de consulta, concientización y acción para las familias de El Salvador, inspirado en la vida de mi abuelo <strong>Hugo Alexander Chicas</strong>.
+    <header class="pt-24 pb-20 px-6 flex flex-col items-center text-center">
+        <div class="max-w-4xl">
+            <h1 class="text-hero mb-6 text-[#1d1d1f] dark:text-[#f5f5f7]">Cultura de Dignidad Integral.</h1>
+            <p class="text-xl md:text-2xl text-[#86868b] leading-relaxed mb-10 max-w-3xl mx-auto">
+                Este espacio es un documento vivo de consulta y concientización para las familias, inspirado en el
+                legado de <strong>Hugo Alexander Chicas</strong>.
             </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <button onclick="openPDF()" class="btn-primary">
+                    Presentación Oficial
+                </button>
+                <a href="#guia" class="link-apple text-[17px] flex items-center gap-1">
+                    Explorar Guía <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Contenido Principal Estilo Documento -->
     <main class="max-w-7xl mx-auto px-6 pb-20">
         <div class="grid lg:grid-cols-12 gap-8">
-            
+
             <!-- Columna Izquierda: Guía de Cuido y Tips -->
-            <div class="lg:col-span-8">
-                <section id="guia" class="doc-section shadow-sm">
-                    <div class="flex items-center gap-3 mb-8">
-                        <i class="fas fa-book-medical text-gold text-2xl"></i>
-                        <h3 class="text-2xl font-bold">Guía Práctica para el Cuidado del Adulto Mayor</h3>
+            <div class="lg:col-span-8 space-y-6">
+                <section id="guia" class="flat-card">
+                    <div class="flex items-center gap-4 mb-8">
+                        <i data-lucide="book-open" class="text-[#1d1d1f] dark:text-[#f5f5f7] w-8 h-8"></i>
+                        <h3 class="text-3xl font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">Guía Práctica de Cuido.
+                        </h3>
                     </div>
 
-                    <div class="space-y-10">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="p-6 bg-slate-50 rounded-2xl">
-                                <h4 class="font-bold mb-3 text-gold">1. Salud Física y Movilidad</h4>
-                                <ul class="text-sm text-slate-600 space-y-2">
-                                    <li>• <span class="font-bold">Prevención de caídas:</span> Eliminar alfombras sueltas y mejorar iluminación en pasillos.</li>
-                                    <li>• <span class="font-bold">Hidratación constante:</span> No esperar a que tengan sed; ofrecer agua cada 2 horas.</li>
-                                    <li>• <span class="font-bold">Cuidado de piel:</span> Uso de cremas hidratantes para evitar lesiones por resequedad.</li>
-                                </ul>
-                            </div>
-                            <div class="p-6 bg-slate-50 rounded-2xl">
-                                <h4 class="font-bold mb-3 text-gold">2. Salud Emocional y Cognitiva</h4>
-                                <ul class="text-sm text-slate-600 space-y-2">
-                                    <li>• <span class="font-bold">Escucha Activa:</span> Validar sus historias aunque se repitan; esto refuerza su identidad.</li>
-                                    <li>• <span class="font-bold">Estimulación:</span> Juegos de mesa sencillos o lectura diaria de noticias.</li>
-                                    <li>• <span class="font-bold">Evitar el aislamiento:</span> Integrarlos en las cenas familiares aunque solo escuchen.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="border-l-4 border-gold p-6 bg-premium-accent/30 italic">
-                            "El cuido no es solo una asistencia médica, es un acto de justicia histórica hacia quienes construyeron nuestro presente." 
-                            <br><span class="not-italic font-bold text-sm">— Mateo Alexander Chicas</span>
-                        </div>
-
+                    <div class="grid md:grid-cols-2 gap-8">
                         <div>
-                            <h4 class="font-bold mb-4">Tips para el Cuidador (Autocuidado)</h4>
-                            <p class="text-slate-600 mb-4">El cuidador familiar suele sufrir fatiga crónica. Para seguir cuidando, debes cuidarte:</p>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-medium">Establecer turnos</span>
-                                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-medium">Dormir 7 horas</span>
-                                <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-xs font-medium">Pedir ayuda profesional</span>
-                            </div>
+                            <h4 class="text-xl font-semibold mb-4 text-[#1d1d1f] dark:text-[#f5f5f7]">Salud Física</h4>
+                            <ul class="text-[#86868b] space-y-3">
+                                <li>• <span class="font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">Prevención:</span>
+                                    Eliminar alfombras y mejorar iluminación.</li>
+                                <li>• <span class="font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">Hidratación:</span>
+                                    Ofrecer agua cada 2 horas.</li>
+                                <li>• <span class="font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">Piel:</span> Uso de
+                                    cremas hidratantes diarias.</li>
+                            </ul>
                         </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-4 text-[#1d1d1f] dark:text-[#f5f5f7]">Salud Emocional
+                            </h4>
+                            <ul class="text-[#86868b] space-y-3">
+                                <li>• <span class="font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">Escucha:</span>
+                                    Validar sus historias con paciencia.</li>
+                                <li>• <span class="font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">Estímulo:</span>
+                                    Juegos de mesa y lectura diaria.</li>
+                                <li>• <span class="font-medium text-[#1d1d1f] dark:text-[#f5f5f7]">Inclusión:</span>
+                                    Integrarlos en las actividades familiares.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div
+                        class="mt-12 p-8 bg-white dark:bg-black rounded-3xl border border-gray-100 dark:border-[#424245] italic text-lg">
+                        "El cuido no es solo una asistencia médica, es un acto de justicia histórica hacia quienes
+                        construyeron nuestro presente."
+                        <br><span class="not-italic font-bold text-sm mt-2 block text-gold">— Mateo Alexander
+                            Chicas</span>
                     </div>
                 </section>
 
-                <!-- Sección de Concientización Realista -->
-                <section class="doc-section shadow-sm border-t-4 border-t-brand-dark">
-                    <h3 class="text-2xl font-bold mb-6 text-brand-dark">Realidad del Adulto Mayor en El Salvador</h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">
-                        En nuestro país, el abandono y la desprotección legal son barreras constantes. El proyecto de la <strong>Dinastía Chicas</strong> busca no solo informar, sino incidir en la protección del patrimonio y la dignidad de los ancianos.
+                <section class="flat-card">
+                    <h3 class="text-3xl font-semibold mb-6 text-[#1d1d1f] dark:text-[#f5f5f7]">Realidad en El Salvador.
+                    </h3>
+                    <p class="text-lg text-[#86868b] leading-relaxed mb-8">
+                        En nuestro país, el abandono y la desprotección legal son barreras constantes. Este proyecto
+                        busca informar y proteger la dignidad de los ancianos.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="border border-slate-200 p-6 rounded-2xl">
-                            <span class="text-3xl font-bold text-gold">70%</span>
-                            <p class="text-xs uppercase font-bold text-slate-400 mt-2">Falta de cobertura social</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="p-8 bg-white dark:bg-black rounded-3xl border border-gray-100 dark:border-[#424245]">
+                            <span class="text-4xl font-bold text-gold">70%</span>
+                            <p class="text-sm font-medium text-[#86868b] mt-2">FALTA DE COBERTURA SOCIAL</p>
                         </div>
-                        <div class="border border-slate-200 p-6 rounded-2xl">
-                            <span class="text-3xl font-bold text-gold">24/7</span>
-                            <p class="text-xs uppercase font-bold text-slate-400 mt-2">Dedicación que promovemos</p>
+                        <div
+                            class="p-8 bg-white dark:bg-black rounded-3xl border border-gray-100 dark:border-[#424245]">
+                            <span class="text-4xl font-bold text-gold">24/7</span>
+                            <p class="text-sm font-medium text-[#86868b] mt-2">DEDICACIÓN QUE PROMOVEMOS</p>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <div class="lg:col-span-4 space-y-8">
-                <section id="legado" class="doc-section shadow-sm text-center">
-                    <h4 class="text-sm font-bold text-gold uppercase tracking-[0.2em] mb-6">In Memoriam</h4>
-                    <div class="photo-frame aspect-[3/4] mb-6 shadow-xl">
+            <div class="lg:col-span-4 space-y-6">
+                <section id="legado" class="flat-card text-center">
+                    <h4 class="text-xs font-bold text-gold uppercase tracking-[0.2em] mb-6">In Memoriam</h4>
+                    <div class="photo-frame aspect-[3/4] mb-6 shadow-sm">
                         <img src="hugochicas.png" alt="Hugo Alexander Chicas" class="object-cover w-full h-full">
                     </div>
-                    <h3 class="text-2xl font-bold leading-tight">Hugo Alexander Chicas</h3>
-                    <p class="text-sm text-slate-500 mt-2 italic">La inspiración detrás del líder</p>
-                    <p class="text-slate-600 text-sm mt-6 leading-relaxed">
-                        Su valentía y amor por la familia son los cimientos que hoy permiten a Mateo Alexander Chicas liderar este movimiento de cambio social.
+                    <h3 class="text-2xl font-semibold leading-tight text-[#1d1d1f] dark:text-[#f5f5f7]">Hugo Alexander
+                        Chicas</h3>
+                    <p class="text-sm text-[#86868b] mt-2 italic">La inspiración detrás del líder</p>
+                    <p class="text-[#86868b] text-sm mt-6 leading-relaxed">
+                        Su valentía y amor por la familia son los cimientos que hoy permiten a Mateo Alexander Chicas
+                        liderar este movimiento de cambio social.
                     </p>
                 </section>
 
                 <!-- Organizaciones -->
-                <section id="ayuda" class="doc-section shadow-sm">
-                    <h4 class="font-bold text-lg mb-6">Red de Apoyo Certificada</h4>
+                <section id="ayuda" class="flat-card">
+                    <h4 class="text-xl font-semibold mb-6 text-[#1d1d1f] dark:text-[#f5f5f7]">Red de Apoyo.</h4>
                     <ul class="space-y-6">
                         <li>
                             <a href="https://www.fusate.org" target="_blank" class="block group">
                                 <span class="text-xs font-bold text-gold uppercase">01. FUSATE</span>
-                                <h5 class="font-bold group-hover:underline">Atención Integral</h5>
-                                <p class="text-xs text-slate-500">Fundación Salvadoreña para la Tercera Edad.</p>
+                                <h5
+                                    class="font-semibold group-hover:text-gold transition-colors text-[#1d1d1f] dark:text-[#f5f5f7]">
+                                    Atención Integral</h5>
+                                <p class="text-xs text-[#86868b]">Fundación Salvadoreña para la Tercera Edad.</p>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.conaipam.gob.sv" target="_blank" class="block group">
                                 <span class="text-xs font-bold text-gold uppercase">02. CONAIPAM</span>
-                                <h5 class="font-bold group-hover:underline">Ente Rector Público</h5>
-                                <p class="text-xs text-slate-500">Políticas y leyes para el adulto mayor.</p>
+                                <h5
+                                    class="font-semibold group-hover:text-gold transition-colors text-[#1d1d1f] dark:text-[#f5f5f7]">
+                                    Ente Rector Público</h5>
+                                <p class="text-xs text-[#86868b]">Políticas y leyes para el adulto mayor.</p>
                             </a>
                         </li>
                     </ul>
@@ -230,34 +329,46 @@
     </main>
 
     <!-- Footer Documental -->
-    <footer class="bg-premium-dark text-white py-16 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-10">
-            <div class="mb-10 md:mb-0 text-center md:text-left">
-                <h4 class="text-2xl font-bold tracking-tight">DINASTÍA CHICAS</h4>
-                <p class="text-slate-400 text-sm mt-2 font-medium">Liderazgo de Mateo Alexander Chicas</p>
+    <footer class="bg-[#f5f5f7] dark:bg-[#1d1d1f] py-16 px-6 text-center text-sm text-[#86868b]">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left">
+                <h4 class="text-xl font-bold text-[#1d1d1f] dark:text-[#f5f5f7] tracking-tight">DINASTÍA CHICAS</h4>
+                <p class="mt-1">Mateo Alexander Chicas</p>
             </div>
-            <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-                <a href="https://mateochicas.com" target="_blank" class="text-sm hover:text-gold transition">mateochicas.com</a>
-                <a href="https://instagram.com/mateoalexanderchicas" target="_blank" class="text-sm hover:text-gold transition flex items-center gap-2">
-                    <i class="fab fa-instagram text-lg"></i>
-                    @mateoalexanderchicas
-                </a>
-                <a href="mailto:info@dinastiachicas.com" class="text-sm hover:text-gold transition text-gold font-bold underline">Contacto Directo</a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://mateochicas.com" target="_blank"
+                    class="hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]">mateochicas.com</a>
+                <span class="text-[#d2d2d7]">|</span>
+                <a href="/terminos/" class="hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]">Términos</a>
+                <span class="text-[#d2d2d7]">|</span>
+                <a href="mailto:info@dinastiachicas.com"
+                    class="hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]">Soporte</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-10 text-[10px] text-slate-500 text-center md:text-left uppercase tracking-widest">
-            &copy; 2024 El Salvador | Documento Digital de Concientización Social
+        <div class="mt-12 text-xs opacity-50 uppercase tracking-widest">
+            Copyright © 2026 Mateo Alexander Chicas Villavicencio. Todos los derechos reservados.
         </div>
     </footer>
 
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+    </script>
+
     <!-- Lector PDF Modal -->
     <div id="pdfModal" class="pdf-modal">
-        <div class="w-full max-w-5xl h-[90vh] bg-white rounded-3xl overflow-hidden flex flex-col">
-            <div class="bg-premium-dark p-4 flex justify-between items-center text-white">
-                <span class="text-xs font-bold tracking-widest">PROPUESTA ESTRATÉGICA DINASTÍA CHICAS</span>
-                <button onclick="closePDF()" class="text-2xl">&times;</button>
+        <div
+            class="w-full max-w-5xl h-[90vh] bg-white dark:bg-black rounded-3xl overflow-hidden flex flex-col shadow-2xl border border-gray-100 dark:border-[#424245]">
+            <div
+                class="bg-[#f5f5f7] dark:bg-[#1d1d1f] p-6 flex justify-between items-center border-b border-gray-200 dark:border-[#424245]">
+                <span class="text-xs font-bold tracking-widest text-[#86868b]">PROPUESTA ESTRATÉGICA</span>
+                <button onclick="closePDF()"
+                    class="text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7] transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
             </div>
-            <div id="pdfContainer" class="flex-1 overflow-y-auto p-4 bg-slate-100 flex flex-col items-center gap-4">
+            <div id="pdfContainer"
+                class="flex-1 overflow-y-auto p-8 bg-gray-50 dark:bg-black/50 flex flex-col items-center gap-6">
                 <!-- PDF Render -->
             </div>
         </div>
@@ -307,8 +418,9 @@
         }
 
         // Close on escape
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closePDF(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePDF(); });
     </script>
 
 </body>
+
 </html>
